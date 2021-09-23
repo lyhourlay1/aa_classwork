@@ -20,8 +20,36 @@ describe Array do
     it "find pairs of position that sum to 0" do
       expect(array.two_sum).to eq([[1,2],[3,4],[5,8]])
     end
-
-   # it "Sort smaller index before bigger index" do
-
   end
+
+  describe "my_transpose" do
+    let(:arr2d) {[
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8]
+    ]}
+    let(:unevenArray) {[
+      [0, 1, 2],
+      [3, 4],
+      [6, 7, 8]
+    ]}
+
+    it "array dimension is the same" do
+      expect(arr2d.length).to eq(arr2d.my_transpose.length)
+      expect(arr2d[0].length).to eq(arr2d.my_transpose[0].length)
+    end
+
+    # it "raise error if array is not symmetrical" do
+    #   expect{unevenArray.my_transpose}.to raise_error "Uneven Array"
+    # end
+
+    it "transposes array correctly" do
+      expect(arr2d.my_transpose).to eq(arr2d.transpose)
+    end
+
+    it "does not modify original" do
+      expect(arr2d.my_transpose).to_not be(arr2d)
+    end
+  end
+
 end

@@ -17,4 +17,15 @@ class Array
         end
         new_arr
     end
+    def my_transpose
+      new_arr = []
+      self[0].each.with_index do |el, i|
+        row = []
+        self.each.with_index do |subarr, j|
+          row << self[j][i]
+        end
+        new_arr << row
+      end
+      new_arr
+    end
 end
