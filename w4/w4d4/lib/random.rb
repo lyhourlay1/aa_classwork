@@ -29,3 +29,25 @@ class Array
       new_arr
     end
 end
+
+def stock_picker(arr)
+    new_arr=[0,0]
+    min=0
+    max=0
+    sum=0
+    arr.each.with_index do |ele,idx|
+        if (max-min)>sum
+            sum = max-min
+        end
+        if min>=ele
+            min =ele
+            new_arr[0]=idx
+        end
+        if max<ele
+            max=ele
+            new_arr[1]=idx
+        end
+    end
+    p new_arr
+    new_arr==[0,0] ? nil : new_arr
+end

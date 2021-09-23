@@ -50,6 +50,24 @@ describe Array do
     it "does not modify original" do
       expect(arr2d.my_transpose).to_not be(arr2d)
     end
-  end
+  end 
 
+  describe "stock_picker" do 
+    let(:array1) {[9,7,1,3,0,1,5,10]}
+    let(:array2) {[9,8,7,6,5,4]}
+    let(:array3) {[10,1,2]}
+    it "output most profitable pairs" do 
+      expect(stock_picker(array1)).to eq([4,7])
+    end
+
+    it "return nil if no profitable pairs" do
+      expect(stock_picker(array2)).to be_nil
+    end
+
+    it "Output profitable pair if max before min" do
+      expect(stock_picker(array3)).to eq([1,2])
+    end
+
+  end
 end
+
