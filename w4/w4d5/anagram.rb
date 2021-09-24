@@ -38,9 +38,11 @@ end
 
 def anagram5?(str1, str2)
   hash = Hash.new(0)
+
   str1.each_char do |ele|
     hash[ele] += 1
   end
+
   str2.each_char do |ele|
     hash[ele] -= 1
   end
@@ -48,5 +50,14 @@ def anagram5?(str1, str2)
   hash.values.all?{|ele| ele == 0}
 end
 
+p anagram?("gizmo", "sally")    #=> false
+p anagram?("elvis", "lives")    #=> true
+
+p anagram2?("gizmo", "sally")    #=> false
+p anagram2?("elvis", "lives")    #=> true
+p anagram3?("gizmo", "sally")    #=> false
+p anagram3?("elvis", "lives")    #=> true
+p anagram4?("gizmo", "sally")    #=> false
+p anagram4?("elvis", "lives")    #=> true
 p anagram5?("gizmo", "sally")    #=> false
 p anagram5?("elvis", "lives")    #=> true
