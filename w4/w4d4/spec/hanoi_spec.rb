@@ -25,8 +25,13 @@ describe "Hanoi" do
     end
   end
 
-  describe "#move" do 
-    it "promts user for get" do 
+  describe "#move" do
+    before(:each){h.move(1, 3)}
+    it "remove the top element out of the specified array" do
+      expect(h.array1).to eq([1, 2, 3, 4, 5])
+    end
+    it "add element to top of specified array" do
+      expect(h.array3).to eq([6])
     end
   end
 
