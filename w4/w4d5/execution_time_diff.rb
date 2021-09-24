@@ -57,55 +57,18 @@ end
 # [2],[2,3]
 
 def largest_contiguous_subsum_(list)
-  
-
-
-  # master_sum = 0
-  # sum = 0
-  # list.each do |ele|
-  #   sum += ele if ele > 0 until 
-  # end
-  # sum 
-
-  # max = 0
-  # i = 0
-  # while i < list.length 
-  #   sum = [(0..i)].sum
-  #   if sum > max
-  #     max = sum
-  #   end
-  # end
-  # result = []
-  # sums = Hash.new()
-
-  #can't use a nested loop, can't store sub_arrays, can't scale memory complexity with input
-  #o(n) time complexity
-
-  #debugger 
-
-  # until (list.first > 0) && (list.last > 0)
-  #   if list.first < 0
-  #     list.shift
-  #   else
-  #     list.pop
-  #   end
-  # end 
-
-  # sum = list.sum
-
-  # list.each_with_index do |ele, idx|
-  #   if sum - ele > sum 
-  #     list.delete_at(idx)
-  #   end 
-  # end
-
-  # list.sum 
-
-  # list.each do |ele|
-
-  # end
-
-  # result 
+  max_sum=list.first
+  current_sum= 0
+  #debugger
+  list.each do |ele|
+    current_sum+=ele
+    if current_sum>max_sum
+      max_sum= current_sum
+    elsif current_sum <0
+      current_sum =0
+    end
+  end
+  max_sum
 end
 
 #p largest_contiguous_subsum_([5,3,1,8])#->[[5,3,1], [5,3],[5,1], [1, 3], [5], [1], [3]]
