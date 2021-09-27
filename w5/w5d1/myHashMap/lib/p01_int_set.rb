@@ -1,4 +1,5 @@
 require 'set'
+require "byebug"
 class MaxIntSet
   attr_accessor :store
   def initialize(max)
@@ -72,7 +73,7 @@ class IntSet
     @store.length
   end
 end
-
+require "byebug"
 class ResizingIntSet
   attr_reader :count
 
@@ -82,7 +83,7 @@ class ResizingIntSet
   end
 
   def insert(num)
-    resize!
+    resize! if @count == @store.length
     if !include?(num)
       @store[num% @store.length]<<num 
       @count +=1
@@ -90,8 +91,10 @@ class ResizingIntSet
   end
 
   def remove(num)
-    @store[num% @store.length]=[]
-    @count-=1
+    if include?(num)
+      @store[num% @store.length]=[]
+      @count-=1
+    end
   end
 
   def include?(num)
@@ -110,10 +113,13 @@ class ResizingIntSet
 
   def resize!
     temp_arr= @store.flatten
-    if num_buckets <= @count
+    
+    # if num_buckets <= @count
       @store = Array.new(num_buckets*2) { Array.new }
       @count=0
-      temp_arr.each {|ele| insert(ele)}
-    end
+      # p @store
+      temp_arr.each {|ele| insert(ele)}  
+    # end
   end
 end
+
