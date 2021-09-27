@@ -1,5 +1,6 @@
 require 'set'
 class MaxIntSet
+  attr_accessor :store
   def initialize(max)
     @store = Array.new(max)
 
@@ -14,6 +15,7 @@ class MaxIntSet
   end
 
   def remove(num)
+    @store[num] = nil
   end
 
   def include?(num)
@@ -36,20 +38,35 @@ class IntSet
     @store = Array.new(num_buckets) { Array.new }
   end
 
+
+  # def []=(num)
+  #   self[num] = num
+  # end
+
   def insert(num)
+    # self[num] = num
+    @store[num % @store.length] << num 
+    # true
   end
 
   def remove(num)
+     @store[num % @store.length] = []
   end
 
   def include?(num)
+    @store[num % @store.length].include?(num)
   end
+  #   def []=(num)
+  #   @store[num % @store.length] = num
+  # end
 
   private
 
   def [](num)
-    # optional but useful; return the bucket corresponding to `num`
+      @store[num % @store.length]
   end
+
+
 
   def num_buckets
     @store.length
