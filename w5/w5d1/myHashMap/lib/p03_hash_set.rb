@@ -7,6 +7,7 @@ class HashSet
   end
 
   def insert(key)
+    resize! if @count == num_buckets 
     @store[key.hash % num_buckets]<<key
     @count+=1
   end
@@ -33,5 +34,10 @@ class HashSet
   end
 
   def resize!
+    temp = @store.flatten
+    @store = Array.new(num_buckets*2) {Array.new}
+    temp.each do |ele|
+      insert(ele)
+    end
   end
 end

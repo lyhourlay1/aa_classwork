@@ -1,3 +1,4 @@
+require 'byebug'
 class Node
   attr_reader :key
   attr_accessor :val, :next, :prev
@@ -18,9 +19,14 @@ class Node
     # and removes self from list.
   end
 end
-
-class LinkedList
+module Enumerable
+end
+class LinkedList include Enumerable
   def initialize
+    @head = Node.new(:head)
+    @tail = Node.new(:tail)
+    @head.next = @tail
+    @tail.prev= @head
   end
 
   def [](i)
@@ -35,6 +41,12 @@ class LinkedList
   end
 
   def empty?
+    #debugger
+    if @head.next == nil 
+      return false
+    else
+      @tail.prev == @head
+    end
   end
 
   def get(key)
@@ -44,6 +56,7 @@ class LinkedList
   end
 
   def append(key, val)
+    
   end
 
   def update(key, val)
