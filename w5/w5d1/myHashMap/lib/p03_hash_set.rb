@@ -7,12 +7,19 @@ class HashSet
   end
 
   def insert(key)
+    @store[key.hash % num_buckets]<<key
+    @count+=1
   end
 
   def include?(key)
+    @store[key.hash % num_buckets].include?(key)
   end
 
   def remove(key)
+    if include?(key)
+      @store[key.hash % num_buckets]=[]
+      @count-=1
+    end
   end
 
   private
