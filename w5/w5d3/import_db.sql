@@ -1,4 +1,3 @@
-
 PRAGMA foreign_keys = ON;
 
 CREATE TABLE users (
@@ -60,7 +59,8 @@ INSERT INTO
 VALUES
   ('Question 1 Title', 'Q1 Body', (SELECT id FROM users WHERE lname = 'Miller' AND fname = 'George')),
   ('Question 2 Title', 'Q2 Body', 2),
-  ('Question 3 Title', 'Q3 Body', 3);
+  ('Question 3 Title', 'Q3 Body', 3),
+  ('Question 4 Title', 'Q4 Body', 2);
 
 INSERT INTO
   question_follows (user_id, question_id)

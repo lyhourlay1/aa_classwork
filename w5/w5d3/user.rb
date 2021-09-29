@@ -1,5 +1,6 @@
 require_relative 'questions_db'
 require_relative 'question'
+require_relative 'reply'
 
 class User
     attr_accessor :id, :fname, :lname
@@ -18,7 +19,7 @@ class User
           WHERE 
             fname = ? AND lname = ? 
         SQL
-        Question.new(records.first)
+        User.new(records.first)
     end
 
     def initialize(options)
@@ -28,5 +29,12 @@ class User
     end
 
     def authored_questions
+      Question.find_by_author_id(id) 
     end
+
+    def authored_replies
+      Reply.find_by_user_id(id)
+    end
+
+    
 end

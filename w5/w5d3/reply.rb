@@ -17,7 +17,7 @@ class Reply
           WHERE 
             user_id = ? 
         SQL
-        Question.new(records.first)
+        records.map {|record| Reply.new(record)}
     end
     
     def self.find_by_question_id(question_id)
@@ -29,7 +29,7 @@ class Reply
           WHERE 
             question_id = ? 
         SQL
-        Question.new(records.first)
+        records.map {|record| Reply.new(record)}
     end
 
     def initialize(options)

@@ -1,4 +1,5 @@
 require_relative 'questions_db'
+require_relative 'user'
 
 class Question
     attr_accessor :id, :title, :body, :author_id
@@ -17,7 +18,7 @@ class Question
           WHERE 
             author_id = ? 
         SQL
-        Question.new(records.first)
+        records.map {|record| Question.new(record)}
     end
 
     def initialize(options)
@@ -26,6 +27,12 @@ class Question
         @body = options['body']
         @author_id = options['author_id']
     end
+
+    def author
+      user = User.find_by_id(author_id)
+      "#{user.fname} #{user.lname}"
+    end
+
 end
 
 
