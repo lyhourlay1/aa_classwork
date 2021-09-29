@@ -62,4 +62,17 @@ VALUES
   ('Question 2 Title', 'Q2 Body', 2),
   ('Question 3 Title', 'Q3 Body', 3);
 
+INSERT INTO
+  question_follows (user_id, question_id)
+VALUES
+  (1, SELECT id FROM questions WHERE id = 2),
+  (1, 1),
+  (2, 3);
+
+INSERT INTO
+  replies (question_id, parent_id, user_id, body)
+VALUES
+  (1, NULL)
+
+
 
