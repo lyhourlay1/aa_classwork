@@ -39,7 +39,7 @@ CREATE TABLE replies (
   FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
-CREATE question_likes (
+CREATE TABLE question_likes (
   id INTEGER PRIMARY KEY,
   user_id INTEGER NOT NULL,
   question_id INTEGER NOT NULL,
@@ -49,11 +49,17 @@ CREATE question_likes (
 );
 
 INSERT INTO 
-  user (fname, lname)
+  users (fname, lname)
 VALUES
   ('George', 'Miller'),
   ('Lyhour', 'Lay'),
   ('Abraham', 'Fong'); 
 
+INSERT INTO
+  questions (title, body, author_id)
+VALUES
+  ('Question 1 Title', 'Q1 Body', SELECT id FROM users WHERE lname = 'Miller' AND fname = 'George'),
+  ('Question 2 Title', 'Q2 Body', 2),
+  ('Question 3 Title', 'Q3 Body', 3);
 
 
