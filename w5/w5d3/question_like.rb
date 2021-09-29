@@ -1,11 +1,11 @@
 require_relative 'questions_db'
 
-class QuestionFollows
+class QuestionLike
     attr_accessor :id, :user_id, :question_id
 
     def self.find_by_id(id)
-        records = QuestionsDB.instance.execute("SELECT * FROM question_follows WHERE id= #{id}")
-        QuestionFollows.new(records.first)
+        records = QuestionsDB.instance.execute("SELECT * FROM question_likes WHERE id= #{id}")
+        QuestionLike.new(records.first)
     end
 
     def initialize(options)
