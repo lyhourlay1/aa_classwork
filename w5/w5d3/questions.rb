@@ -12,8 +12,17 @@ class QuestionsDB < SQLite3::Database
 end
 
 class Question
+    attr_accessor :id, :title, :body, :author_id
+
     def self.find_by_id(id)
-        record = QuestionsDB.instance.execute("SELECT * FROM questions WHERE id= #{id}")
-        Question.new(record)
+        records = QuestionsDB.instance.execute("SELECT * FROM questions WHERE id= #{id}")
+        Question.new(records.first)
+    end
+
+    def initialize(options)
+        @id = options['id']
+        @title = options['title']
+        @body = options['body']
+        @author_id = options['author_id']
     end
 end
