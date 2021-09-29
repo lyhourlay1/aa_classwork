@@ -4,7 +4,7 @@ PRAGMA foreign_keys = ON;
 CREATE TABLE users (
   id INTEGER PRIMARY KEY,
   fname TEXT NOT NULL,
-  lname TEXT NOT NULL,
+  lname TEXT NOT NULL
   -- foregin key needed
 );
 
@@ -58,21 +58,33 @@ VALUES
 INSERT INTO
   questions (title, body, author_id)
 VALUES
-  ('Question 1 Title', 'Q1 Body', SELECT id FROM users WHERE lname = 'Miller' AND fname = 'George'),
+  ('Question 1 Title', 'Q1 Body', (SELECT id FROM users WHERE lname = 'Miller' AND fname = 'George')),
   ('Question 2 Title', 'Q2 Body', 2),
   ('Question 3 Title', 'Q3 Body', 3);
 
 INSERT INTO
   question_follows (user_id, question_id)
 VALUES
-  (1, SELECT id FROM questions WHERE id = 2),
+  (1, (SELECT id FROM questions WHERE id = 2)),
   (1, 1),
   (2, 3);
 
 INSERT INTO
   replies (question_id, parent_id, user_id, body)
 VALUES
-  (1, NULL)
+  (1, NULL, 2, 'a reply'),
+  (2, NULL, 3, 'reply2'),
+  (3, NULL, 1, 'reply3'),
+  (3, 3 , 2, 'reply to reply3');
+
+INSERT INTO
+  question_likes (user_id, question_id)
+VALUES
+  (3,1),
+  (2,1),
+  (1,2);
+
+
 
 
 
