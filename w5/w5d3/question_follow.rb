@@ -18,13 +18,26 @@ class QuestionFollow
     def self.followers_for_questions_id(question_id)
         records = QuestionsDB.instance.execute(<<-SQL, question_id)
             SELECT
-            users.id, fname, lname
+                users.id, fname, lname
             FROM
-            users
+                users
             JOIN
-            question_follows ON users.id = question_follows.user_id
+                question_follows ON users.id = question_follows.user_id
             WHERE question_follows.question_id = ?
         SQL
         records.map {|record| User.new(record)}
+    end
+
+    def self.followed_questions_for_user_id(user_id)
+        records = QuestionsDB.instance.execute(<<-SQL, user_id)
+            SELECT
+                questions.id, questions.title, questions.body, questions.author_id
+            FROM
+                questions
+            JOIN
+                question_follows ON questions.id = question_follows.question_id
+            WHERE question_follows.user_id = ?
+        SQL
+        records.map {|record| Question.new(record)}
     end
 end
