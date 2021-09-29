@@ -41,7 +41,7 @@ def films_from_sixty_two
     FROM 
       movies
     WHERE 
-     yr=1962;
+      yr = 1962;
   SQL
 end
 
