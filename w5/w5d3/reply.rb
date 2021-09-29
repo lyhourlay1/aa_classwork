@@ -1,4 +1,6 @@
 require_relative 'questions_db'
+require_relative 'user'
+require_relative 'question'
 
 class Reply
     attr_accessor :id, :user_id, :body, :question_id, :parent_id
@@ -17,7 +19,7 @@ class Reply
           WHERE 
             user_id = ? 
         SQL
-        records.map {|record| Reply.new(record)}
+        map(records)
     end
     
     def self.find_by_question_id(question_id)
@@ -29,7 +31,11 @@ class Reply
           WHERE 
             question_id = ? 
         SQL
-        records.map {|record| Reply.new(record)}
+        map(records)
+    end
+
+    def self.map(records)
+      records.map {|record| Reply.new(record)}
     end
 
     def initialize(options)
@@ -38,5 +44,30 @@ class Reply
         @question_id = options['question_id']
         @parent_id = options['parent_id']
         @body = options['body']
+    end
+
+    def author
+      user = User.find_by_id(user_id)
+      "#{user.fname} #{user.lname}"
+    end
+
+    def question
+      Question.find_by_id(question_id)
+    end
+
+    def parent_reply
+      Reply.find_by_id(parent_id)
+    end
+
+    def child_replies
+      records = QuestionsDB.instance.execute(<<-SQL, @id)
+        SELECT
+          *
+        FROM
+          replies
+        WHERE
+          parent_id = ?
+      SQL
+      Reply.map(records)
     end
 end
