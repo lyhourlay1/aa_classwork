@@ -33,9 +33,43 @@ class QuestionLike
         SQL
     end
 
+    def self.liked_questions_for_user_id(user_id)
+        records = QuestionsDB.instance.execute(<<-SQL, user_id)
+            SELECT
+                questions.id, questions.title, questions.body, questions.author_id
+            FROM
+                questions
+            JOIN
+                question_likes ON questions.id = question_likes.question_id
+            WHERE question_likes.user_id = ?
+        SQL
+        records.map {|record| Question.new(record)}
+    end
+
+    def self.most_liked_questions(n)
+        records = QuestionsDB.instance.execute(<<-SQL, n)
+            SELECT
+                questions.id, questions.title, questions.body, questions.author_id,
+                COUNT(*) AS num_liked
+            FROM
+                questions
+            JOIN
+                question_likes ON questions.id = question_likes.question_id
+            GROUP BY
+                questions.id
+            ORDER BY
+                num_liked DESC
+            LIMIT
+                ?
+        SQL
+        records.map {|record| Question.new(record)}
+    end
+    
+
     def initialize(options)
         @id = options['id']
         @user_id = options['user_id']
         @question_id = options['question_id']
     end
+
 end
