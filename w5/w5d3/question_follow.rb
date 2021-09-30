@@ -40,6 +40,7 @@ class QuestionFollow
         SQL
         records.map {|record| Question.new(record)}
     end
+    
     def self.most_followed_questions(n)
         records = QuestionsDB.instance.execute(<<-SQL, n)
             SELECT

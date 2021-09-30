@@ -1,6 +1,7 @@
 require_relative 'questions_db'
 require_relative 'user'
 require_relative 'reply'
+require_relative 'question_follow'
 
 class Question
     attr_accessor :id, :title, :body, :author_id
@@ -20,6 +21,10 @@ class Question
             author_id = ? 
         SQL
         records.map {|record| Question.new(record)}
+    end
+
+    def self.most_followed(n)
+      QuestionFollow.most_followed_questions(n)
     end
 
     def initialize(options)
