@@ -2,3 +2,11 @@
   ↳ bin/rails:9
   [1m[35m (103.5ms)[0m  [1m[35mCREATE DATABASE "First_Routes_and_Controller_test" ENCODING = 'unicode'[0m
   ↳ bin/rails:9
+  [1m[35m (229.0ms)[0m  [1m[35mCREATE DATABASE "First_Routes_and_Controller_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (58.1ms)[0m  [1m[35mCREATE DATABASE "First_Routes_and_Controller_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE DATABASE "First_Routes_and_Controller_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE DATABASE "First_Routes_and_Controller_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
