@@ -1,27 +1,24 @@
-useclass UsersController < ApplicationController
+class UsersController < ApplicationController
 
   def index
-    # users = User.all
-    # render json: users
-    render json: params
+    users = User.all
+    render json: users
+    #render json: params
   end
 
   def show
-    # user = User.find(params[:id])
-    # render json: user
-    render json: params
+    user = User.find(params[:id])
+    render json: user
+    
   end
 
   def create
-    # user = User.new(user_params)
-    # if user.save
-    #   redirect_to "/users/#{user.id}"
-    # else
-    #   render json: user.errors.full_messages, status: 422
-    # end
-    #render plain: "I'm in the create action!"
-    render json: params
-
+    user = User.new(user_params)
+    if user.save
+      redirect_to "/users/#{user.id}"
+    else
+      render json: user.errors.full_messages, status: 422
+    end    
   end
 
   def update
@@ -42,7 +39,4 @@ useclass UsersController < ApplicationController
     user.destroy
     render json: user
   end
-
-
-
 end
