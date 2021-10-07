@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   def index
     users = User.all
     render json: users
-    #render json: params
+
   end
 
   def show
@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   end
 
   def create
+    # debugger
     user = User.new(user_params)
     if user.save
       redirect_to "/users/#{user.id}"
@@ -31,7 +32,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:fav_food)
+    params.require(:user).permit(:name, :email)
   end
 
   def destroy
