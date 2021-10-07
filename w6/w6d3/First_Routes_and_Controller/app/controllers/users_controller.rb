@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     if user.save
       redirect_to "/users/#{user.id}"
     else
-      render json: user.errors.full_messages, status: 422
+      render json: user.errors.full_messages, status: :unprocessable_entity
     end    
   end
 
