@@ -202,7 +202,6 @@ GEM
 
 PLATFORMS
   x86_64-darwin-19
-  x86_64-darwin-20
 
 DEPENDENCIES
   annotate
@@ -229,7 +228,7 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 RUBY VERSION
-   ruby 2.5.8p224
+   ruby 2.5.1p57
 
 BUNDLED WITH
    2.2.28
