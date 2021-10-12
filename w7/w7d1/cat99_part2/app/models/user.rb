@@ -44,4 +44,9 @@ class User < ApplicationRecord
         end
     end
 
+    has_many :cats,
+        primary_key: :id,
+        foreign_key: :user_id,
+        class_name: :Cat 
+
 end

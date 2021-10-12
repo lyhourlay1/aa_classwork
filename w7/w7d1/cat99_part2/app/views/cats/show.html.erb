@@ -5,7 +5,7 @@
     <th>Attribute</th>
     <th>Value</th>
   </tr>
-  <% [:age, :birth_date, :color, :sex].each do |attr_name| %>
+  <% [:age, :birth_date, :color, :sex, :user_id].each do |attr_name| %>
     <tr>
       <td><%= attr_name %></td>
       <td><%= @cat.send(attr_name) %></td>
