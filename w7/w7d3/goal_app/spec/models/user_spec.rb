@@ -19,33 +19,52 @@ RSpec.describe User, type: :model do
     it {should validate_uniqueness_of(:session_token)}
   end
 
-  describe "is_valid_password?" do
-    let!(:user) {create(users)} #create bot
-        context "with a valid password" do 
-            it "should return true" do
-                expect(user.is_valid_password?('password')).to be true
-            end
-        end
+  # describe "is_valid_password?" do
+  #   let!(:user) {create(users)} #create bot
+  #       context "with a valid password" do 
+  #           it "should return true" do
+  #               expect(user.is_valid_password?('password')).to be true
+  #           end
+  #       end
 
-        context "with an invalid password" do 
-            it "should return false" do
-                expect(user.is_valid_password?('pineapple')).to be false
-            end
-        end   
+  #       context "with an invalid password" do 
+  #           it "should return false" do
+  #               expect(user.is_valid_password?('pineapple')).to be false
+  #           end
+  #       end   
+  # end
+  describe 'password encryption' do
+    it 'does not save passwords to the database' do
+      User.create!(username: 'sunny_d', password: 'password')
+      sunny = User.find_by(username: 'sunny_d')
+      expect(sunny.password).not_to be('password')
+    end
+    context 'it saves passwords properly' do 
+      it 'encrypts the password using BCrypt' do
+        expect(BCrypt::Password).to receive(:create)
+        User.new(username: 'jack_bruce', password: 'abcdef')
+      end
+
+      it 'properly sets the password reader' do
+        user = User.new(username: 'jack_bruce', password: 'abcdef')
+        expect(user.password).to eq('abcdef')
+      end
+    end
   end
 
-  # let!(:user) {create(users)}
-  
-  describe "reset_session_token" do  
+  # let!(:user) {create(users)}]
+  subject {  User.create!(username: 'lilly_llama', password: 'password')}
+
+  describe "session_token" do  
     it "set the new session_token on the user" do
-        user.valid?
-        old_session_token = user.session_token
-        user.reset_session_token!
-        expect(user.session_token).not_to eq(old_session_token)
+        subject.valid?
+        old_session_token = subject.session_token
+        subject.reset_session_token!
+        expect(subject.session_token).not_to eq(old_session_token)
     end
 
     it "returns new session token" do
-        expect(user.reset_session_token!).to eq(user.session_token)
+        expect(subject.reset_session_token!).to eq(subject.session_token)
     end
   end
 
@@ -65,13 +84,4 @@ RSpec.describe User, type: :model do
       expect(user).to be_nil 
     end
   end
-
-
-
-
-
-  
-
-
-
 end
