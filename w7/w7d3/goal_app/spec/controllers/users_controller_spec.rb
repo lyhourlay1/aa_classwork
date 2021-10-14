@@ -1,6 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe UserController, type: :controller do
+RSpec.describe UsersController, type: :controller do
+  subject (:jasmine) { User.create!(username: 'jasmine', password: 'abcdef') }
 
   describe 'GET #new' do
     it 'renders the new users template' do
@@ -37,14 +38,56 @@ RSpec.describe UserController, type: :controller do
         expect(response).to render_template('new')
         expect(flash[:errors]).to eq(['Password is too short, minimum is 6 characters.'])
       end
-
-
     end
-
   end
 
+  describe "GET #show" do
+    context "when logged in" do
+      before do 
+        allow(controller).to receive(:current_user) {jasmine}
+      end
 
+      it "renders thw show page of the specified user" do
+        get :show, params: {id: jasmine.id}
+        fetched_user = controller.instance_variable_get(:@user)
+        expect(fetched_user).to eq(User.find(jasmine.id))
+        expect(response).to render_template(:show)
+      end
+    end
 
+    context "when logged out" do
+      before do 
+        allow(controller).to receive(:current_user) {nil}
+      end
 
+      it "directs to the login page" do 
+        get :show, params: {id: jasmine.id}
+        expect(response).to redirect_to(new_sesion_url)
+      end
+    end
+  end
 
+  describe 'GET #index' do
+    context 'when logged in' do
+      before do
+        allow(controller).to receive(:current_user) { jasmine }
+      end
+
+      it 'renders the index page of all the users' do
+        get :index
+        expect(response).to render_template(:index)
+      end
+    end
+
+    context 'when logged out' do
+      before do
+        allow(controller).to receive(:current_user) { nil }
+      end
+
+      it 'redirects to the login page' do
+        get :index
+        expect(response).to redirect_to(new_session_url)
+      end
+    end
+  end      
 end
