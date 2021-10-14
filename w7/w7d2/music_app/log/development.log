@@ -1,0 +1,1071 @@
+  [1m[35m (196.0ms)[0m  [1m[35mCREATE DATABASE "music_app_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (232.8ms)[0m  [1m[35mCREATE DATABASE "music_app_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (20.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4505726345591715405)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20211012182908)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying NOT NULL, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20211012182908_create_users.rb:3
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  ↳ db/migrate/20211012182908_create_users.rb:9
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20211012182908"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-10-12 18:36:18.318618"], ["updated_at", "2021-10-12 18:36:18.318618"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(4505726345591715405)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4505726345591715405)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddIndexUser (20211012183711)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_session_token" ON "users"  ("session_token")[0m
+  ↳ db/migrate/20211012183711_add_index_user.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20211012183711"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(4505726345591715405)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4505726345591715405)[0m
+  ↳ bin/rails:9
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddIndexUnique (20211012224329)
+  [1m[35m (3.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(4505726345591715405)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4505726345591715405)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddIndexUnique (20211012224329)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(4505726345591715405)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4505726345591715405)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddIndexUnique (20211012224329)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (8.6ms)[0m  [1m[35mALTER TABLE "usesr" DROP COLUMN "email"[0m
+  ↳ db/migrate/20211012224329_add_index_unique.rb:3
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(4505726345591715405)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4505726345591715405)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to AddIndexUnique (20211012224329)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (11.6ms)[0m  [1m[35mALTER TABLE "users" DROP COLUMN "email"[0m
+  ↳ db/migrate/20211012224329_add_index_unique.rb:3
+  [1m[35m (2.9ms)[0m  [1m[35mALTER TABLE "users" ADD "email" character varying NOT NULL[0m
+  ↳ db/migrate/20211012224329_add_index_unique.rb:4
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  ↳ db/migrate/20211012224329_add_index_unique.rb:5
+  [1m[36mActiveRecord::SchemaMigration Create (2.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20211012224329"]]
+  ↳ bin/rails:9
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (4.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(4505726345591715405)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/cats" for ::1 at 2021-10-12 16:12:45 -0700
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+  
+ActionController::RoutingError (No route matches [GET] "/cats"):
+  
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/" for ::1 at 2021-10-12 16:12:46 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb (1.4ms)
+Completed 200 OK in 13ms (Views: 4.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-10-12 16:12:53 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb (1.5ms)
+Completed 200 OK in 8ms (Views: 4.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2021-10-12 16:13:20 -0700
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+
+ActionView::MissingTemplate - Missing template users/new, application/new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/lyhourlay/Desktop/music_app/app/views":
+  app/controllers/users_controller.rb:8:in `new'
+
+Started POST "/__better_errors/de4bcfe7dd4a4caf/variables" for ::1 at 2021-10-12 16:13:20 -0700
+Started GET "/users" for ::1 at 2021-10-12 16:13:26 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/" for ::1 at 2021-10-12 16:14:26 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb (1.7ms)
+Completed 200 OK in 8ms (Views: 5.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-10-12 16:15:03 -0700
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb (1.9ms)
+Completed 200 OK in 11ms (Views: 6.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-10-12 16:15:04 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb (1.6ms)
+Completed 200 OK in 7ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-10-12 16:15:06 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb (1.4ms)
+Completed 200 OK in 6ms (Views: 3.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-10-12 16:15:09 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb (1.5ms)
+Completed 200 OK in 7ms (Views: 4.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-10-12 16:15:16 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb (1.5ms)
+Completed 200 OK in 7ms (Views: 3.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-10-12 16:15:17 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb (1.5ms)
+Completed 200 OK in 6ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/new" for ::1 at 2021-10-12 16:15:24 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/new"):
+  
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/users" for ::1 at 2021-10-12 16:15:31 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/users" for ::1 at 2021-10-12 16:16:00 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (5.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.6) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.6) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.6) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.6) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/" for ::1 at 2021-10-12 16:16:04 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb (1.4ms)
+Completed 200 OK in 6ms (Views: 3.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-10-12 16:17:50 -0700
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb (1.8ms)
+Completed 200 OK in 11ms (Views: 5.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2021-10-12 16:23:20 -0700
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 513ms (Views: 510.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2021-10-12 16:23:38 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 25ms (Views: 25.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2021-10-12 16:23:38 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 21ms (Views: 21.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2021-10-12 16:23:39 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 23ms (Views: 22.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2021-10-12 16:23:39 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 29ms (Views: 28.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2021-10-12 16:23:40 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 27ms (Views: 27.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-10-12 16:23:45 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb (1.3ms)
+Completed 200 OK in 8ms (Views: 4.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-10-12 16:23:48 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb (1.5ms)
+Completed 200 OK in 9ms (Views: 4.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-10-12 16:23:54 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb (2.1ms)
+Completed 200 OK in 7ms (Views: 4.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-10-12 16:27:04 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb (2.9ms)
+Completed 200 OK in 19ms (Views: 8.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-10-12 16:27:05 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb (5.2ms)
+Completed 200 OK in 13ms (Views: 9.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-10-12 16:27:05 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb (1.7ms)
+Completed 200 OK in 11ms (Views: 4.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-10-12 16:27:22 -0700
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb (2.5ms)
+Completed 200 OK in 12ms (Views: 7.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-10-12 16:28:19 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb (1.5ms)
+Completed 200 OK in 8ms (Views: 4.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-10-12 16:32:35 -0700
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb (2.2ms)
+Completed 200 OK in 12ms (Views: 6.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2021-10-12 16:33:12 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 214ms (Views: 214.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-10-12 16:34:46 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.6/lib/rails/templates/rails/welcome/index.html.erb (1.6ms)
+Completed 200 OK in 7ms (Views: 4.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2021-10-12 16:37:54 -0700
+  [1m[35m (5.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 147ms (Views: 143.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2021-10-12 16:38:46 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 20ms (Views: 19.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2021-10-12 16:39:10 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 20ms (Views: 19.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2021-10-12 16:39:27 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 33ms (Views: 33.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-10-12 16:49:42 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started GET "/session/new" for ::1 at 2021-10-12 16:49:44 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 35ms (Views: 34.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2021-10-12 16:49:45 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 33ms (Views: 32.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2021-10-12 16:49:45 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 31ms (Views: 30.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2021-10-12 16:52:42 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.4ms)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected keyword_ensure, expecting keyword_end
+          ensure
+          ^~~~~~
+/Users/lyhourlay/Desktop/music_app/app/views/layouts/application.html.erb:27: syntax error, unexpected end-of-input, expecting keyword_end
+          end
+             ^:
+  app/views/layouts/application.html.erb:25:in `'
+  app/controllers/sessions_controller.rb:4:in `new'
+
+Started POST "/__better_errors/696940de2ee4f420/variables" for ::1 at 2021-10-12 16:52:42 -0700
+Started GET "/session/new" for ::1 at 2021-10-12 16:52:45 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected keyword_ensure, expecting keyword_end
+          ensure
+          ^~~~~~
+/Users/lyhourlay/Desktop/music_app/app/views/layouts/application.html.erb:27: syntax error, unexpected end-of-input, expecting keyword_end
+          end
+             ^:
+  app/views/layouts/application.html.erb:25:in `'
+  app/controllers/sessions_controller.rb:4:in `new'
+
+Started POST "/__better_errors/d8e0dcb4eee449e6/variables" for ::1 at 2021-10-12 16:52:45 -0700
+Started GET "/session/new" for ::1 at 2021-10-12 16:53:13 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 22ms (Views: 21.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2021-10-12 16:53:14 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 22ms (Views: 21.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2021-10-12 16:53:39 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.3ms)
+Completed 500 Internal Server Error in 126ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `logged_in?' for #<#<Class:0x00007fcbafb38f30>:0x00007fcbb28a4dc0>
+Did you mean?  logger?:
+  app/views/layouts/application.html.erb:17:in `_app_views_layouts_application_html_erb__3608055479764049828_70256425198620'
+  app/controllers/sessions_controller.rb:4:in `new'
+
+Started POST "/__better_errors/ac985b74a6ecdd6d/variables" for ::1 at 2021-10-12 16:53:39 -0700
+Started GET "/session/new" for ::1 at 2021-10-12 16:54:11 -0700
+
+ActionController::RoutingError - undefined method `helpeer_method' for ApplicationController:Class
+Did you mean?  helper_method
+               _helper_methods
+               _helper_methods?
+               _helper_methods=:
+
+Started POST "/__better_errors/42ca1f6e8df6815d/variables" for ::1 at 2021-10-12 16:54:11 -0700
+Started GET "/session/new" for ::1 at 2021-10-12 16:54:12 -0700
+
+ActionController::RoutingError - undefined method `helpeer_method' for ApplicationController:Class
+Did you mean?  helper_method
+               _helper_methods
+               _helper_methods?
+               _helper_methods=:
+
+Started POST "/__better_errors/ba8ddd1dd238533a/variables" for ::1 at 2021-10-12 16:54:12 -0700
+Started GET "/session/new" for ::1 at 2021-10-12 16:54:18 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.3ms)
+Completed 500 Internal Server Error in 121ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `logged_in?' for #<#<Class:0x00007fcba8f68760>:0x00007fcba8f4bdb8>
+Did you mean?  logged_in:
+  app/views/layouts/application.html.erb:17:in `_app_views_layouts_application_html_erb__3608055479764049828_70256344979200'
+  app/controllers/sessions_controller.rb:4:in `new'
+
+Started POST "/__better_errors/6b9cb5d01b2f877a/variables" for ::1 at 2021-10-12 16:54:19 -0700
+Started GET "/session/new" for ::1 at 2021-10-12 16:54:29 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.3ms)
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected tINTEGER, expecting tSTRING_CONTENT or tSTRING_DBEG or tSTRING_DVAR or tSTRING_END
+...es :password, length {minimum:6}, allow_nil: true
+...                              ^:
+  app/models/user.rb:5:in `'
+  app/controllers/application_controller.rb:4:in `current_user'
+  app/controllers/application_controller.rb:8:in `logged_in?'
+  app/views/layouts/application.html.erb:17:in `_app_views_layouts_application_html_erb__3608055479764049828_70256402816520'
+  app/controllers/sessions_controller.rb:4:in `new'
+
+Started POST "/__better_errors/9527e2999bdfe92c/variables" for ::1 at 2021-10-12 16:54:30 -0700
+Started GET "/session/new" for ::1 at 2021-10-12 16:54:30 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.4ms)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.0ms)
+
+
+
+SyntaxError - syntax error, unexpected tINTEGER, expecting tSTRING_CONTENT or tSTRING_DBEG or tSTRING_DVAR or tSTRING_END
+...es :password, length {minimum:6}, allow_nil: true
+...                              ^:
+  app/models/user.rb:5:in `'
+  app/controllers/application_controller.rb:4:in `current_user'
+  app/controllers/application_controller.rb:8:in `logged_in?'
+  app/views/layouts/application.html.erb:17:in `_app_views_layouts_application_html_erb__3608055479764049828_70256343122620'
+  app/controllers/sessions_controller.rb:4:in `new'
+
+Started POST "/__better_errors/afed533c197778a2/variables" for ::1 at 2021-10-12 16:54:30 -0700
+Started GET "/session/new" for ::1 at 2021-10-12 16:55:05 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (6.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4
+Completed 200 OK in 45ms (Views: 24.5ms | ActiveRecord: 19.7ms)
+
+
+Started GET "/session/new" for ::1 at 2021-10-12 16:55:31 -0700
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4
+Completed 200 OK in 27ms (Views: 25.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/new" for ::1 at 2021-10-12 16:56:48 -0700
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+
+ActionView::MissingTemplate - Missing template users/new, application/new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/lyhourlay/Desktop/music_app/app/views":
+  app/controllers/users_controller.rb:8:in `new'
+
+Started POST "/__better_errors/6731b75f04eebdf5/variables" for ::1 at 2021-10-12 16:56:48 -0700
+Started GET "/users/new" for ::1 at 2021-10-12 17:01:05 -0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4
+Completed 200 OK in 45ms (Views: 44.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/new" for ::1 at 2021-10-12 17:01:17 -0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4
+Completed 200 OK in 20ms (Views: 19.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/new" for ::1 at 2021-10-12 17:02:40 -0700
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:4
+Completed 200 OK in 21ms (Views: 20.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2021-10-12 17:05:16 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/9833b1a14da5812a/variables" for ::1 at 2021-10-12 17:05:16 -0700
+Started GET "/" for ::1 at 2021-10-12 17:05:52 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/32ace9ca3503dd2d/variables" for ::1 at 2021-10-12 17:05:52 -0700
+Started GET "/" for ::1 at 2021-10-12 17:05:54 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/dddf4b2f677038e6/variables" for ::1 at 2021-10-12 17:05:54 -0700
+Started GET "/" for ::1 at 2021-10-12 17:05:55 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/d723d68c7c0823b0/variables" for ::1 at 2021-10-12 17:05:55 -0700
+Started GET "/" for ::1 at 2021-10-12 17:05:56 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/90a872935d543b55/variables" for ::1 at 2021-10-12 17:05:56 -0700
+Started GET "/" for ::1 at 2021-10-12 17:07:12 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/75cd342cc70f6696/variables" for ::1 at 2021-10-12 17:07:12 -0700
+Started GET "/" for ::1 at 2021-10-12 17:07:13 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/e1fd1757f9bb2fd4/variables" for ::1 at 2021-10-12 17:07:13 -0700
+Started GET "/" for ::1 at 2021-10-12 17:07:13 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/286cdabfffa1a98b/variables" for ::1 at 2021-10-12 17:07:13 -0700
+Started GET "/" for ::1 at 2021-10-12 17:07:13 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/90c2ed85826d04a8/variables" for ::1 at 2021-10-12 17:07:13 -0700
+Started GET "/" for ::1 at 2021-10-12 17:07:42 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/ed0ba8446f54389e/variables" for ::1 at 2021-10-12 17:07:42 -0700
+Started GET "/" for ::1 at 2021-10-12 17:07:43 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/145761399b99433d/variables" for ::1 at 2021-10-12 17:07:43 -0700
+Started GET "/" for ::1 at 2021-10-12 17:07:44 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/d9429240fa981386/variables" for ::1 at 2021-10-12 17:07:44 -0700
+Started GET "/" for ::1 at 2021-10-12 17:07:44 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/ad4a7c500f7fdf91/variables" for ::1 at 2021-10-12 17:07:44 -0700
+Started GET "/" for ::1 at 2021-10-12 17:07:44 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/e7aaafd54cb0b037/variables" for ::1 at 2021-10-12 17:07:44 -0700
+Started GET "/" for ::1 at 2021-10-12 17:07:46 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/382c818917fb022d/variables" for ::1 at 2021-10-12 17:07:46 -0700
+Started GET "/" for ::1 at 2021-10-12 17:07:47 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/0fa1496a621acda1/variables" for ::1 at 2021-10-12 17:07:47 -0700
+Started GET "/" for ::1 at 2021-10-12 17:07:47 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/6db6a7170da5de1d/variables" for ::1 at 2021-10-12 17:07:47 -0700
+Started GET "/" for ::1 at 2021-10-12 17:07:47 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/549f16ac601590c7/variables" for ::1 at 2021-10-12 17:07:47 -0700
+Started GET "/" for ::1 at 2021-10-12 17:07:47 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/01c75d4c344e8581/variables" for ::1 at 2021-10-12 17:07:47 -0700
+Started GET "/" for ::1 at 2021-10-12 17:07:48 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/40d4e628b40102a3/variables" for ::1 at 2021-10-12 17:07:48 -0700
+Started GET "/" for ::1 at 2021-10-12 17:07:48 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/38be1b87d08dcf3f/variables" for ::1 at 2021-10-12 17:07:48 -0700
+Started GET "/" for ::1 at 2021-10-12 17:07:48 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/163b4929d15d5d5e/variables" for ::1 at 2021-10-12 17:07:48 -0700
+Started GET "/" for ::1 at 2021-10-12 17:08:39 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/5edafecd7af1ca48/variables" for ::1 at 2021-10-12 17:08:39 -0700
+Started GET "/" for ::1 at 2021-10-12 17:08:40 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/fde8455bee69e40e/variables" for ::1 at 2021-10-12 17:08:40 -0700
+Started GET "/" for ::1 at 2021-10-12 17:08:40 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/4ca18aebb4405189/variables" for ::1 at 2021-10-12 17:08:40 -0700
+Started GET "/" for ::1 at 2021-10-12 17:08:40 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/b44a440fc05be381/variables" for ::1 at 2021-10-12 17:08:40 -0700
+Started GET "/" for ::1 at 2021-10-12 17:08:41 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/bc8b77ec3644246b/variables" for ::1 at 2021-10-12 17:08:41 -0700
+Started GET "/" for ::1 at 2021-10-12 17:08:41 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/1fd29081a46696aa/variables" for ::1 at 2021-10-12 17:08:41 -0700
+Started GET "/" for ::1 at 2021-10-12 17:08:41 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/1affbaa03b7428ce/variables" for ::1 at 2021-10-12 17:08:41 -0700
+Started GET "/" for ::1 at 2021-10-12 17:08:41 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/3c3daadec09a14a0/variables" for ::1 at 2021-10-12 17:08:41 -0700
+Started GET "/" for ::1 at 2021-10-12 17:08:42 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/9979396d8ec6a9b8/variables" for ::1 at 2021-10-12 17:08:42 -0700
+Started GET "/" for ::1 at 2021-10-12 17:11:37 -0700
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/0a268132058e71eb/variables" for ::1 at 2021-10-12 17:11:38 -0700
+Started GET "/" for ::1 at 2021-10-12 17:11:39 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/f708750a63cec78e/variables" for ::1 at 2021-10-12 17:11:39 -0700
+Started GET "/" for ::1 at 2021-10-12 17:11:53 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/ee8d75ceaa974c00/variables" for ::1 at 2021-10-12 17:11:53 -0700
+Started GET "/" for ::1 at 2021-10-12 17:11:54 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/da03c536355eb236/variables" for ::1 at 2021-10-12 17:11:54 -0700
+Started GET "/" for ::1 at 2021-10-12 17:11:54 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/dbade8112a81e97b/variables" for ::1 at 2021-10-12 17:11:54 -0700
+Started GET "/" for ::1 at 2021-10-12 17:11:55 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/b9512c9571957951/variables" for ::1 at 2021-10-12 17:11:55 -0700
+Started GET "/" for ::1 at 2021-10-12 17:13:09 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/9c2db54773105f08/variables" for ::1 at 2021-10-12 17:13:09 -0700
+Started GET "/" for ::1 at 2021-10-12 17:13:09 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/243178309f148872/variables" for ::1 at 2021-10-12 17:13:09 -0700
+Started GET "/" for ::1 at 2021-10-12 17:14:19 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/98c9d6637ca95387/variables" for ::1 at 2021-10-12 17:14:19 -0700
+Started GET "/" for ::1 at 2021-10-12 17:14:20 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/1f82d42515de75f3/variables" for ::1 at 2021-10-12 17:14:20 -0700
+Started GET "/" for ::1 at 2021-10-12 17:14:20 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/baf881b207d9427f/variables" for ::1 at 2021-10-12 17:14:20 -0700
+Started GET "/" for ::1 at 2021-10-12 17:14:20 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/f84203d1888c2b35/variables" for ::1 at 2021-10-12 17:14:20 -0700
+Started GET "/" for ::1 at 2021-10-12 17:14:20 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/c176025f461b9341/variables" for ::1 at 2021-10-12 17:14:20 -0700
+Started GET "/" for ::1 at 2021-10-12 17:14:21 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/948be546782a6a3d/variables" for ::1 at 2021-10-12 17:14:21 -0700
+Started GET "/" for ::1 at 2021-10-12 17:14:21 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/96f3dd2877a0b064/variables" for ::1 at 2021-10-12 17:14:21 -0700
+Started GET "/" for ::1 at 2021-10-12 17:14:21 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/cfafb1bb95c38838/variables" for ::1 at 2021-10-12 17:14:21 -0700
+Started GET "/" for ::1 at 2021-10-12 17:14:53 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/95f62f62c16256fe/variables" for ::1 at 2021-10-12 17:14:53 -0700
+Started GET "/" for ::1 at 2021-10-12 17:15:04 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/11244a5147d2ad6e/variables" for ::1 at 2021-10-12 17:15:04 -0700
+Started GET "/" for ::1 at 2021-10-12 17:15:05 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/9fe2449a47270139/variables" for ::1 at 2021-10-12 17:15:05 -0700
+Started GET "/" for ::1 at 2021-10-12 17:15:05 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/9b9032f4efec0b62/variables" for ::1 at 2021-10-12 17:15:06 -0700
+Started GET "/" for ::1 at 2021-10-12 17:15:06 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/b5dcc442501c6bf7/variables" for ::1 at 2021-10-12 17:15:06 -0700
+Started GET "/" for ::1 at 2021-10-12 17:16:37 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/28a99e4a5825121d/variables" for ::1 at 2021-10-12 17:16:37 -0700
+Started GET "/" for ::1 at 2021-10-12 17:16:39 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/bc1161f0071c59e3/variables" for ::1 at 2021-10-12 17:16:39 -0700
+Started GET "/" for ::1 at 2021-10-12 17:16:40 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/18c852b99723dfe5/variables" for ::1 at 2021-10-12 17:16:40 -0700
+Started GET "/" for ::1 at 2021-10-12 17:16:40 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/da4e35a5f2b83b77/variables" for ::1 at 2021-10-12 17:16:40 -0700
+Started GET "/" for ::1 at 2021-10-12 17:16:40 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/075b7fd2453e96a9/variables" for ::1 at 2021-10-12 17:16:40 -0700
+Started GET "/" for ::1 at 2021-10-12 17:16:40 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/b61304f232fb55db/variables" for ::1 at 2021-10-12 17:16:40 -0700
+Started GET "/" for ::1 at 2021-10-12 17:16:41 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/46b78fb3b8ce170f/variables" for ::1 at 2021-10-12 17:16:41 -0700
+Started GET "/" for ::1 at 2021-10-12 17:16:41 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/3e8116ec9784227f/variables" for ::1 at 2021-10-12 17:16:41 -0700
+Started GET "/" for ::1 at 2021-10-12 17:16:41 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/00b412b94381af95/variables" for ::1 at 2021-10-12 17:16:41 -0700
+Started GET "/" for ::1 at 2021-10-12 17:16:41 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/507b2fd734cc2dc6/variables" for ::1 at 2021-10-12 17:16:41 -0700
+Started GET "/" for ::1 at 2021-10-12 17:16:41 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/963f61a1cbd6a08d/variables" for ::1 at 2021-10-12 17:16:41 -0700
+Started GET "/" for ::1 at 2021-10-12 17:16:42 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/1606fb831386d19d/variables" for ::1 at 2021-10-12 17:16:42 -0700
+Started GET "/" for ::1 at 2021-10-12 17:16:42 -0700
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/05f12f4cc771db21/variables" for ::1 at 2021-10-12 17:16:42 -0700
+Started GET "/" for ::1 at 2021-10-12 17:17:03 -0700
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/lyhourlay/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+
+ActionController::RoutingError - uninitialized constant SessionController:
+
+Started POST "/__better_errors/31faa28e2df61087/variables" for ::1 at 2021-10-12 17:17:03 -0700
