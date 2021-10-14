@@ -6,13 +6,16 @@ html {
 }
 
 body {
-	// ...
+	width: 80%;
+	margin: 0 auto;
+	font-family: $serif;
+	font-size: 12px;
 }
 
 button {
-	// background-color:
+	background-color: $light-blue;
 	// border-color:
-	// color:
+	color: white;
 	// font-weight:
 	// padding:
 	// border-radius:
@@ -24,8 +27,8 @@ button {
 }
 
 button:hover {
-	// background-color:
-	// border-color:
+	background-color: $dark-blue;
+	border-color: $darkest-blue;
 }
 
 /*

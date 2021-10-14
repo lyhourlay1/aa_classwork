@@ -1,9 +1,12 @@
 .main-nav {
-
+  display: flex;
+  justify-content:space-between;
 }
 
 .left-nav > ul,
 .right-nav > ul {
+  display: flex;
+  justify-content: space-between;
 
 }
 
@@ -11,7 +14,7 @@
 
   > ul {
     > li {
-
+      padding: 20px;
     }
   }
 
@@ -25,7 +28,7 @@
   > ul {
 
     > li {
-  
+      padding: 20px 10px;
     }
 
     > li:last-of-type {
@@ -40,5 +43,5 @@
 
 .left-nav > ul > li:hover,
 .right-nav > ul > li:last-of-type:hover {
-
+  background-color: $darkest-blue;
 }
