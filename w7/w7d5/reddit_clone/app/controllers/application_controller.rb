@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+  skip_before_action :verify_authenticity_token
+
   #sign in , sign out, signed in ?, current user, require_sign_in
 
   #when calling on the current user, just use current_user method (not @current_user)
