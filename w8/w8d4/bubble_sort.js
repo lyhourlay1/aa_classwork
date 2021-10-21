@@ -35,18 +35,21 @@ function innerBubbleSortLoop(arr, i, madeAnySwaps, outerBubbleSortLoop) {
       askIfGreaterThan(arr[i], arr[i + 1], (value) => {
         if (value === true) {
           [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]];
+          madeAnySwaps = true;
         }
       });
 
-      innerBubbleSortLoop(arr, i + 1, )
+      innerBubbleSortLoop(arr, i + 1, madeAnySwaps, outerBubbleSortLoop);
 
     }
+
+    
   // 2. Else, use `askIfGreaterThan` to compare `arr[i]` and `arr[i +
   //    1]`. Swap if necessary. Call `innerBubbleSortLoop` again to
   //    continue the inner loop. You'll want to increment i for the
   //    next call, and possibly switch madeAnySwaps if you did swap.
 }
-
+innerBubbleSortLoop([1,6,4,7], 0, false, ele => console.log(ele));
 // Once you're done testing innerBubbleSortLoop, write outerBubbleSortLoop.
 // Once you're done testing outerBubbleSortLoop, write absurdBubbleSort.
 
