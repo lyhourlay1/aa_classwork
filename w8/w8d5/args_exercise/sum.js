@@ -18,10 +18,5 @@ function sum(...arguments) {
 // console.log(sum(1, 2, 3, 4));
 // console.log(sum(1, 2, 3, 4, 5));
 
-function myBind(cxt, bindArgs){
-    let func = this;
-    
-    return function(callArgs){
-        return func.call(cxt, callArgs);
-    }
-}
+
+
