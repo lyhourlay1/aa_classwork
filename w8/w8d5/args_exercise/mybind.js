@@ -4,9 +4,10 @@ Function.prototype.myBind = function(ctx) {
   return function () {
     let callArgs = Array.from(arguments);
     let allArgs = bindArgs.concat(callArgs)
-    return func.call(ctx, callArgs);
+    return func.apply(ctx, allArgs);
   }
 }
+//markov.says.myBind(pavlov, "meow", "Kush")();
 
 // Function.prototype.myBind = function () {
 //   let cxt = Array.from(arguments)[0];
@@ -16,9 +17,19 @@ Function.prototype.myBind = function(ctx) {
 //   return function () {
 //     let callArgs = Array.from(arguments);
 //     let allArgs = bindArgs.concat(callArgs)
-//     return func.call(cxt, callArgs);
+//     return func.apply(cxt, allArgs);
 //   }
 // }
+Function.prototype.myBind = function (...args) {
+  let cxt =args[0];
+  let bindArgs = args.slice(1);
+  // let cxt = bindArgs[0];
+  let func = this;
+  return function (...callArgs) {
+    let allArgs = bindArgs.concat(callArgs)
+    return func.apply(cxt, allArgs);
+  }
+}
 
 //markov.says.myBind(pavlov, "meow", "Kush")();
 
