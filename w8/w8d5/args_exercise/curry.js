@@ -1,13 +1,30 @@
-Function.prototype.curry = function(numArgs){
-   let collection = [];
-   let func = this
-   return function _curry(arg){
+// Function.prototype.curry = function(numArgs){
+//    let collection = [];
+//    let func = this
+//    return function _curry(arg){
+//     if (collection.length < numArgs) {
+//       collection.push(arg);
+//       console.log(collection);
+//       return _curry;
+//     }
+//     else{
+//       //console.log(collection)
+//       // console.log(func(collection)); //this.apply(func, collection)
+//       console.log(Function.prototype.apply(func, collection));
+//     }
+//   }
+// }
+
+Function.prototype.apply = function (cb, numArgs) {
+  let collection = [];
+  let func = this
+  return function _curry(arg) {
     if (collection.length < numArgs) {
       collection.push(arg);
       console.log(collection);
       return _curry;
     }
-    else{
+    else {
       //console.log(collection)
       // console.log(func(collection)); //this.apply(func, collection)
       console.log(Function.prototype.apply(func, collection));
