@@ -21,10 +21,14 @@ MovingObject.prototype.draw = function(ctx){
 
   ctx.fill();
 }
-
-MovingObject.prototype.move = function(){
-  this.pos =[this.pos[0]+ this.vel[0], this.pos[1]+ this.vel[1] ]
-  this.draw(document.getElementById("game-canvas").getContext("2d"))
+const  NORMAL_FRAME_TIME_DELTA = 1000/60;
+MovingObject.prototype.move = function(timeDelta){
+  const velocityScale = timeDelta / NORMAL_FRAME_TIME_DELTA
+  offsetX = this.vel[0] * velocityScale
+  offsetY = this.vel[1] * velocityScale
+  this.pos =[this.pos[0]+ offsetX, this.pos[1]+ offsetY ]
+  //return this.pos
+  //this.draw(document.getElementById("game-canvas").getContext("2d"))
 }
 
 module.exports = MovingObject;
