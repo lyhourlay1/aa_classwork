@@ -37,12 +37,12 @@ Game.prototype.moveObjects = function(ctx) {
   ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
   for (let i = 0; i < this.asteroidArr.length; i++) {
-    // console.log("before")
-    // console.log(this.asteroidArr[i])
+    console.log("before")
+    console.log(this.asteroidArr[i])
     
     this.asteroidArr[i].move();
-    // console.log("after")
-    // console.log(this.asteroidArr[i])
+    console.log("after")
+    console.log(this.asteroidArr[i])
   }
   this.draw(ctx);
 }

@@ -1,0 +1,48 @@
+/* PHASE 1: Header */
+.header {
+    background-color: red;
+    color: white;
+    display: block;
+    text-align: center;
+}
+
+h1 {
+    font-weight: bold;
+    float: left;
+    padding: 30px;
+}
+h1:hover {
+  background-color:grey;
+}
+
+ul li{
+  	display: inline-block;
+    padding: 30px;
+}
+
+li:hover {
+  background-color: grey;
+}
+
+ul > :first-child{
+    color: black;
+}
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+
+

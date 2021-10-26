@@ -27,7 +27,6 @@ MovingObject.prototype.move = function(timeDelta){
   offsetX = this.vel[0] * velocityScale
   offsetY = this.vel[1] * velocityScale
   this.pos =[this.pos[0]+ offsetX, this.pos[1]+ offsetY ]
-  //return this.pos
   //this.draw(document.getElementById("game-canvas").getContext("2d"))
 }
 
