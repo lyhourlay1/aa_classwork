@@ -1,7 +1,9 @@
+const Game = require("../ttt_node/game.js");
 class View {
   constructor(game, el) {
     this.game = game
     this.element = el
+    this.bindEvents()
   }
 
   setupBoard() {
@@ -30,15 +32,20 @@ class View {
       li.style.height = "75px";
       li.style.backgroundColor= "white";
       li.style.border = "5px solid black";
+      console.log(li.dataset.row)
       ul.appendChild(li);
     }
   }
   
   bindEvents() {
-    
+    this.element.addEventListener("click", this.handleClick)
   }
 
-  handleClick(e) {}
+  handleClick(e) {
+    e.target.textContent = "x"//this.game.currentPlayer
+    let pos = [e.target.dataset.row, e.target.dataset.col]
+    this.game.playMove(pos)
+  }
 
   makeMove(square) {}
 
