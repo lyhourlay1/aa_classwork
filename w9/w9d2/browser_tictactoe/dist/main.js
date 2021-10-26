@@ -15,7 +15,7 @@
   \**********************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("const View = __webpack_require__(/*! ./ttt-view.js */ \"./src/ttt-view.js\")\nconst Game = __webpack_require__(/*! ../ttt_node/game.js */ \"./ttt_node/game.js\");\n\n\ndocument.addEventListener(\"DOMContentLoaded\", () => {\n  // Your code here\n  const game = new Game();\n  const viewElement = document.querySelector(\".ttt\")\n  const view = new View(game, viewElement )\n\n});\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("const View = __webpack_require__(/*! ./ttt-view.js */ \"./src/ttt-view.js\")\nconst Game = __webpack_require__(/*! ../ttt_node/game.js */ \"./ttt_node/game.js\");\n\n\ndocument.addEventListener(\"DOMContentLoaded\", () => {\n  // Your code here\n  const game = new Game();\n  const viewElement = document.querySelector(\".ttt\")\n  const view = new View(game, viewElement )\n  view.setupBoard();\n\n});\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
@@ -25,7 +25,7 @@ eval("const View = __webpack_require__(/*! ./ttt-view.js */ \"./src/ttt-view.js\
   \*************************/
 /***/ ((module) => {
 
-eval("class View {\n  constructor(game, el) {\n    this.game = game\n    this.element = el\n    this.setupBoard()\n  }\n\n  setupBoard() {\n    this.element.innerHTML = `<ul></ul>`\n    let ul = this.element.querySelector(\"ul\")\n    //ul.innerHTML = `<p> kdf</p>`\n    for(let i=1; i< 10; i++){\n      let li = document.createElement(\"li\")\n      li.setAttribute(\"data-id\", i)\n      ul.appendChild(li)\n    }\n  }\n  \n  bindEvents() {}\n\n  handleClick(e) {}\n\n  makeMove(square) {}\n\n}\n\nmodule.exports = View;\n\n\n//# sourceURL=webpack:///./src/ttt-view.js?");
+eval("class View {\n  constructor(game, el) {\n    this.game = game\n    this.element = el\n  }\n\n  setupBoard() {\n    this.element.innerHTML = `<ul></ul>`\n    let ul = this.element.querySelector(\"ul\")\n    ul.style.display = \"flex\"\n    ul.style.flexWrap= \"wrap\"\n    ul.style.width = \"270px\"\n\n    for(let i=0; i< 9; i++){\n      let li = document.createElement(\"li\");\n      // li.addEventListener(\"mouseenter\", (event) => {\n      //   event.target.classList.toggle('hover-over')\n      // })\n      li.addEventListener(\"mouseenter\", (event) => {\n        event.target.style.backgroundColor = \"red\"\n      })\n      li.addEventListener(\"mouseleave\", (event) => {\n        event.target.style.backgroundColor = \"white\"\n      })\n      li.setAttribute(\"data-id\", i);\n      li.setAttribute(\"data-col\", i%3);\n      li.setAttribute(\"data-row\", Math.floor(i/3));\n      li.style.display = \"block\";\n      li.style.width = \"75px\";\n      li.style.height = \"75px\";\n      li.style.backgroundColor= \"white\";\n      li.style.border = \"5px solid black\";\n      ul.appendChild(li);\n    }\n  }\n  \n  bindEvents() {\n    \n  }\n\n  handleClick(e) {}\n\n  makeMove(square) {}\n\n}\n\nmodule.exports = View;\n\n\n//# sourceURL=webpack:///./src/ttt-view.js?");
 
 /***/ }),
 
