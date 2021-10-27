@@ -7,6 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const game = new Game();
   const viewElement = document.querySelector(".ttt")
   const view = new View(game, viewElement )
-  view.setupBoard();
+
 
 });

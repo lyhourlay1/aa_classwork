@@ -1,3 +1,28 @@
-.hover-over {
-  background-color: red;
+
+.list-default {
+  display: block;
+  width: 75px;
+  height: 75px;
+  background-color: white;
+  border: 5px solid black ;
+  font-size: 75px ;
+  text-align: center;
+}
+
+.list-default:hover {
+  background-color: grey;
+}
+
+.ul-default {
+  display: flex;
+  flex-wrap: wrap;
+  width: 270px;
+}
+
+.x-clicked {
+  background-color: teal;
+}
+
+.o-clicked {
+  background-color: thistle;
 }
