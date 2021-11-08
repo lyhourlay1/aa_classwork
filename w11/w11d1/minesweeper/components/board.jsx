@@ -1,5 +1,5 @@
 import React from "react"
-import * as Minesweeper from "./minesweeper"
+import Tile from "./tile"
 
 class Board extends React.Component{
     constructor(props){
@@ -7,16 +7,18 @@ class Board extends React.Component{
     }
     render(){
         return(
-        this.props.board.map((ele,i)=>{
-            ele.map((pos, j)=>{ 
-                const newTile = new Tile(this,[i,j])
-                const keyValue = i+j   
-                <div key={keyValue}>
-                    <Tile tile={newTile} update={this.props.update}/>
-                </div>
-            })
-        })
+            this.props.board.grid.map((ele,i)=>{
+                return (
+                    <div>
+
+                        ele.map((tile, j)=>{
+                            console.log(tile)
+                            return  <Tile tile={tile} update={this.props.update}/>
+                        })
+                    </div>
+                )})
+            )           
     }
 }
 
-export default Board
+export default Board;

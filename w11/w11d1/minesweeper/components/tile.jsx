@@ -10,4 +10,4 @@ class Tile extends React.Component{
         return (<p>T</p>)
     }
 }
-export default Tile 
+export default Tile;
