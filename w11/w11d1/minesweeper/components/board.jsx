@@ -9,12 +9,15 @@ class Board extends React.Component{
         return(
             this.props.board.grid.map((ele,i)=>{
                 return (
-                    <div>
-
-                        ele.map((tile, j)=>{
-                            console.log(tile)
-                            return  <Tile tile={tile} update={this.props.update}/>
-                        })
+                    //const array = Array.from(ele)
+                    // console.log(ele.length)
+                    <div key={i} class ="container">
+                        { 
+                            ele.map((tile, j)=>{
+                                //console.log(tile)
+                                return  <Tile key={j} tile={tile} update={this.props.update}/>
+                            })
+                        }
                     </div>
                 )})
             )           

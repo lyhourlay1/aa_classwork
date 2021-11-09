@@ -1,0 +1,12 @@
+
+
+#root{
+    display: grid;
+}
+.container{
+    display: flex;
+}
+h1{
+    border: 2px solid black;
+    
+}
