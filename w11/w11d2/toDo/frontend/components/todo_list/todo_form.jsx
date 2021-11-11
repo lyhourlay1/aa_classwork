@@ -10,7 +10,8 @@ export class TodoForm extends React.Component {
 
         this.state={
             title: "",
-            id: uniqueId()
+            id: uniqueId(),
+            done: false
         }
 
         this.handleSubmit= this.handleSubmit.bind(this)
@@ -25,7 +26,8 @@ export class TodoForm extends React.Component {
 
         this.setState({
             title: "",
-            id: uniqueId()
+            id: uniqueId(),
+            done: false
         })
     }
 
@@ -37,8 +39,10 @@ export class TodoForm extends React.Component {
 
     render(){
         console.log(this.state)
+        // debugger
         return (
-
+          <>
+          <h2>create a new to do item</h2>
             <form onSubmit={this.handleSubmit}>
                 <label>title
                     <input type="text" onChange={this.updateTitle} value ={this.state.title} />
@@ -46,6 +50,7 @@ export class TodoForm extends React.Component {
 
                 <input type="submit" value="SUBMIT" />
             </form>
+          </>
         )
     }
 }
