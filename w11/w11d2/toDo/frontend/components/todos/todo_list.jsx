@@ -1,9 +1,18 @@
 import React from "react"
-
-
-const TodoList = () => {
+import { TodoListItem } from "../todo_list/todo_list_item";
+import {TodoForm} from "../todo_list/todo_form"
+const TodoList = (props) => {
   return (
-    <h1>this is to do list</h1>
+    <div>
+      <h1>this is to do list</h1>
+      <ul>
+        {
+          props.todos.map((todo,index) => <TodoListItem todo={todo} key={index} removeTodo= {props.removeTodo}/>)
+        }
+      </ul>
+      <TodoForm receiveTodo ={props.receiveTodo}/>
+
+    </div>
   )
 }
 
