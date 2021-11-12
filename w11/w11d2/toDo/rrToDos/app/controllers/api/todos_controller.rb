@@ -17,10 +17,20 @@ class Api::TodosController < ApplicationController
         render json: todos
     end
 
-    def updated
+    def update
+      todo = Todo.find(params[:id])
+      if todo.update_attributes(todo_params)
+        render json: todo
+      else
+        render json: todo.errors.full_messages, status: 422
+      end
     end
 
     def destroy
+      todo = Todo.find(params[:id])
+      if todo
+        todo.delete
+      end
     end
 
     def todo_params
