@@ -5,3 +5,4 @@ export const fetchAllPokemon = () => {
     url: '/api/pokemon'
   })
 }
+
