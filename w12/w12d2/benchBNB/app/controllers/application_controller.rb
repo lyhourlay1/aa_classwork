@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   # protect_from_forgery with: :exception
 
   # make these methods available from within the views
+  skip_forgery_protection
   helper_method :current_user, :logged_in?
 
   def login!(user)
